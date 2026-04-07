@@ -1,0 +1,42 @@
+- docker pull (name):version
+- docker run name/id:(version) optional
+- docker start name/id:(version)
+- docker stop name/id:(version)
+- docker image ..(to check the list of images we have in docker)
+- docker ps ..(it will show the running continers )
+- docker ps -a ...(it will show histroy of all the running containers)
+- docker run -d name/id:(version)
+- docker run -p (portno):(tpc port no or container port no) -d name/id (of image or continer)
+- docker logs id/name (of the container)
+- docker run -p 6000:6379 --name old redis:4.0 ///this is the example to set name along with port
+- docker run -it node //The command docker run -it node creates and starts a new, interactive Docker container from the official node image, connecting your local terminal to the container's shell
+- docker exec -it id/name (of the container) //this command will get me into the os of the continer itslef its getting into the the linux of the container
+-docker network ls //lists all the docker networks..
+-docker network create (name) //name of the network
+//sample
+//docker run -d \
+//-p 4007:4007
+//--net (name of the network)
+//--name (name of the app)
+//mongo/ express
+
+
+docker run -d \
+-p 27017:27017 \
+-e MONGO_INITDB_ROOT_USERNAME=admin \
+-e MONGO_INITDB_ROOT_PASSWORD=admin \
+--name mongo-db \
+--net mongo-network \
+mongo
+
+
+docker run -d \
+-p 8081:8081 \
+-e ME_CONFIG_BASICAUTH_USERNAME="user" \
+-e ME_CONFIG_BASICAUTH_PASSWORD="user" \
+-e ME_CONFIG_MONGODB_ADMINUSERNAME="admin" \
+-e ME_CONFIG_MONGODB_ADMINPASSWORD="admin" \
+--net mongo-network \
+--name mongo-express \
+-e ME_CONFIG_MONGODB_SERVER=mongo-db \
+mongo-express

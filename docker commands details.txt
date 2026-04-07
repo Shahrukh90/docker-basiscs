@@ -1,0 +1,38 @@
+==Container Management==
+These commands are used to manage the lifecycle of a container.
+
+docker run: Creates and starts a new container from an image.
+docker start <name>: Starts a stopped container.
+docker stop <name>: Gracefully stops a running container.
+docker kill <name>: Forcefully stops a running container.
+docker ps (or docker container ls): Lists all currently running containers.
+docker ps --all (or docker container ls -a): Lists all containers, including stopped ones.
+docker rm <name>: Removes a stopped container.
+docker exec -it <name> <command>: Runs a command inside a running container, often used to open a shell.
+docker logs <name>: Fetches and displays the logs of a container.
+docker cp: Copies files/folders between a container and the local filesystem.
+docker inspect <name>: Displays detailed information on a container or other Docker objects.
+
+==Image Management==
+These commands help manage the images that containers are built from.
+docker build -t <name> .: Builds a new image from a Dockerfile in the current directory.
+docker pull <image>: Downloads an image from a registry (like Docker Hub).
+docker push <image>: Uploads an image to a registry.
+docker images (or docker image ls): Lists local Docker images.
+docker rmi <image>: Removes an image from local storage.
+docker search <image>: Searches a Docker registry for images.
+docker image prune: Removes all unused or dangling images.
+
+==System & Other Commands==
+These general commands help manage the Docker environment.
+Docker Docs
+Docker Docs
+docker login: Authenticates your Docker client with a registry.
+docker logout: Logs out from a Docker registry.
+docker info: Displays system-wide information about the Docker installation.
+docker system prune: Removes all unused containers, networks, images, and optionally volumes to free up space.
+docker stats: Displays a live stream of containers' resource usage statistics (CPU, memory, etc.).
+
+to delete an image
+docker rmi IMAGE_ID or REPOSITORY:TAG
+
